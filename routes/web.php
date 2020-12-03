@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,8 @@ Route::get('/', function () {
 Route::get('/info', function () {
     return view('info');
 });
+
+Route::resource('hobby', 'App\Http\Controllers\HobbyController');
 
 Auth::routes();
 
