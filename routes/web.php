@@ -23,6 +23,7 @@ Route::get('/info', function () {
 });
 
 Route::resource('hobby', 'App\Http\Controllers\HobbyController');
+Route::resource('tag', 'App\Http\Controllers\TagController');
 
 Auth::routes();
 
