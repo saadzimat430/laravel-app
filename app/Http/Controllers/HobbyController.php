@@ -28,7 +28,7 @@ class HobbyController extends Controller
      */
     public function create()
     {
-        //
+        return view('hobby.create');
     }
 
     /**
@@ -39,7 +39,22 @@ class HobbyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:3',
+            'description' => 'required|min:5'
+        ]);
+
+        $hobby = new Hobby([
+            'name' => $request['name'],
+            'description' => $request['description']
+        ]);
+        $hobby->save();
+
+        return $this->index()->with(
+            [
+                'message_success' => "The hobby <b>".$hobby['name']."</b> was created"
+            ]
+        );
     }
 
     /**
@@ -50,7 +65,9 @@ class HobbyController extends Controller
      */
     public function show(Hobby $hobby)
     {
-        //
+        return view('hobby.show')->with([
+            'hobby' => $hobby
+        ]);
     }
 
     /**
@@ -61,7 +78,9 @@ class HobbyController extends Controller
      */
     public function edit(Hobby $hobby)
     {
-        //
+        return view('hobby.edit')->with([
+            'hobby' => $hobby
+        ]);
     }
 
     /**
@@ -73,17 +92,38 @@ class HobbyController extends Controller
      */
     public function update(Request $request, Hobby $hobby)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:3',
+            'description' => 'required|min:5'
+        ]);
+
+        $hobby->update([
+            'name' => $request['name'],
+            'description' => $request['description']
+        ]);
+
+        return $this->index()->with(
+            [
+                'message_success' => "The hobby <b>".$hobby['name']."</b> was updated"
+            ]
+        );
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Hobby  $hobby
+     * @param \App\Models\Hobby $hobby
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Hobby $hobby)
     {
-        //
+        $oldName = $hobby->name;
+        $hobby->delete();
+        return $this->index()->with(
+            [
+                'message_success' => "The hobby <b>".$oldName."</b> was deleted"
+            ]
+        );
     }
 }
