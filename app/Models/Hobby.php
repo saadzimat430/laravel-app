@@ -9,6 +9,14 @@ class Hobby extends Model
 {
     use HasFactory;
 
+    public function user() {
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function tags() {
+        return $this->belongsToMany('App\Models\Tag');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

@@ -1290,38 +1290,46 @@ tag_id</ColNames>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="385" parent="340" name="email_verified_at">
+    <column id="385" parent="340" name="motto">
       <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="386" parent="340" name="about_me">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="387" parent="340" name="email_verified_at">
+      <Position>6</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <column id="386" parent="340" name="password">
-      <Position>5</Position>
+    <column id="388" parent="340" name="password">
+      <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="387" parent="340" name="remember_token">
-      <Position>6</Position>
+    <column id="389" parent="340" name="remember_token">
+      <Position>8</Position>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <column id="388" parent="340" name="created_at">
-      <Position>7</Position>
+    <column id="390" parent="340" name="created_at">
+      <Position>9</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <column id="389" parent="340" name="updated_at">
-      <Position>8</Position>
+    <column id="391" parent="340" name="updated_at">
+      <Position>10</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <index id="390" parent="340" name="users_email_unique">
+    <index id="392" parent="340" name="users_email_unique">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="391" parent="340" name="PRIMARY">
+    <key id="393" parent="340" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="392" parent="340" name="users_email_unique">
+    <key id="394" parent="340" name="users_email_unique">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>users_email_unique</UnderlyingIndexName>
     </key>

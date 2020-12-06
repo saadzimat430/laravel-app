@@ -11,6 +11,10 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function hobbies() {
+        return $this->hasMany('App\Models\Hobby');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
